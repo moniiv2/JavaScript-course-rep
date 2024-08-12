@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Functions</title>
+  </head>
+  <body>
+    <script>
+      /*function function1() {
+        console.log("hello");
+        console.log(2 + 2);
+      }
+
+      function1();
+      function1(); */
+
+      /*function calculateTax(cost, taxPercent = 0.1) {
+        console.log(cost * taxPercent);
+      }
+      calculateTax(2000, 0.2);
+      calculateTax(3000);*/
+
+      function greet(name = "there") {
+        console.log(`hello, ${name}`);
+      }
+      greet("Monisola");
+      greet("Praise");
+      greet("Yinka");
+      greet();
+
+      function convertToFarenheit(celsius) {
+        let farenheit = (celsius * 9) / 5 + 32;
+        console.log(farenheit);
+      }
+
+      convertToFarenheit(25);
+
+      function convertLength(length, from, to) {
+        let conversion;
+
+        if (from === "miles" && to === "km") {
+          conversion = length * 1.6;
+          console.log(`${length} ${from} is ${conversion}${to}`);
+        } else if (from === "km" && to === "miles") {
+          conversion = length / 1.6;
+          console.log(`${length}${from} is ${conversion} ${to}`);
+        }
+      }
+      convertLength(50, "miles", "km");
+      convertLength(32, "km", "miles");
+    </script>
+  </body>
+</html>

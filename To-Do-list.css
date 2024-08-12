@@ -1,0 +1,32 @@
+body {
+  font-family: Arial;
+}
+.todo-grid, .grid {
+  display: grid;
+  grid-template-columns: 200px 150px 100px;
+  gap: 10px;
+  align-items: center;
+}
+.grid {
+  margin-bottom: 10px;
+  align-items: stretch;
+}
+.name-input, .date-input {
+  font-size: 15px;
+  padding: 6px;
+}
+.add {
+  background-color: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+.del-butt {
+  background-color: darkred;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 10px 0;
+}

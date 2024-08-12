@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Functions</title>
+  </head>
+  <body>
+    <!-- <button onclick="" class="js-button">Click me!</button> -->
+
+    <script>
+      /*
+      const buttonElement = document.querySelector('.js-button');
+      const eventlistener = () => {
+        console.log('clicked');
+      };
+
+      buttonElement.addEventListener('click', eventlistener);
+
+      buttonElement.removeEventListener('click', eventlistener);
+
+      buttonElement.addEventListener('click', () => {
+        console.log('click again?');
+      });
+
+
+      function greeting() {
+        console.log('hello');
+      }
+      greeting();
+
+      const num = 2;
+      const function1 = function () {
+        console.log('good evening');
+      };
+
+      console.log(function1);
+      console.log(typeof function1);
+      function1();
+
+      const object1 = {
+        num: 2,
+        fun: function () {
+          console.log('how are ya?');
+        },
+      };
+      object1.fun();
+
+      function display(param) {
+        console.log(param);
+      }
+      display(2);
+
+      function run(param) {
+        param();
+      }
+      run(function () {
+        console.log('so what else do i say now?');
+      });
+
+      setTimeout(function () {
+        console.log('time out');
+        console.log('biatchhhh');
+      }, 5000);
+
+      console.log('nwxet line');
+
+      setInterval(function () {
+        console.log('you tooootally got this course!');
+      }, 3000);
+
+      console.log('whuuuttt?');
+
+      ['stop drinking', 'iron clothes', 'open door for praise'].forEach(
+        (value, index) => {
+          if (value === 'iron clothes') {
+            return;
+          }
+          console.log(index);
+          console.log(value);
+        }
+      );
+
+      const regularfunction = function () {
+        console.log('i love regular show');
+      };
+
+      const arrowfunction = () => {
+        console.log('hello');
+      };
+
+      arrowfunction();
+      regularfunction();
+
+      const oneparam = (param) => {
+        console.log(param + 1);
+      };
+      oneparam(3);
+
+      const oneline = () => 2 + 3;
+      console.log(oneline());
+
+      const object2 = {
+        method: () => {
+
+        },
+        methodias() {
+
+        }
+      }
+
+      console.log(
+        [1, -3, -4, 7, 9, 3].filter((value, index) => {
+
+          if (value >= 0) {
+            return true;
+          } else {
+            return false;
+          }
+
+          return value >= 0;
+        })
+      );
+
+      console.log(
+        [1, 1, 4].map((value, index) => {
+          return value * 2;
+        })
+      );
+
+      console.log([1, 1, 4].map((value) => value * 2)); */
+
+      const multiply = (value, value2) => value * value2;
+      console.log(multiply(2, 3));
+
+      [1, 2, 3, -5].forEach((value, index) => {
+        if (value < 0) {
+          return;
+        }
+        console.log(value);
+      });
+
+      console.log(
+        ['fish', 'wheat', 'egg', 'ham', 'egg', 'beef'].filter(
+          (value, index) => value !== 'egg'
+        )
+      );
+
+      /*function add() {
+        console.log(2 + 3);
+        //console.log('gotcha!');
+      }
+      add();
+      function beatsme(add()) {
+        add();
+        console.log(add + 5);
+      }
+      beatsme(); */
+    </script>
+  </body>
+</html>
