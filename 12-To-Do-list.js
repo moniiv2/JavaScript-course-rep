@@ -37,7 +37,7 @@ document.querySelector('.js-add').addEventListener('click', () => {
 
 function addTodo() {
   const inputElement = document.querySelector('.js-name-input');
-  const name = inputElement.value;
+  let name = inputElement.value;
 
   const dateInputElement = document.querySelector('.js-duedate');
   const dueDate = dateInputElement.value;
@@ -50,6 +50,6 @@ function addTodo() {
   );
   
 
-  inputElement.value = '';
+  name = '';
   renderTodoList();
 }

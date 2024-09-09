@@ -103,6 +103,10 @@
     <p class="me-name"></p>
 
     <script>
+      /* if you get an element from the dom, it'll convert that element into a string and if you actually needed that number you'll have to convert it manually back into a number
+      using the function
+      Number() */
+
       function beyonce() {
         let text = document.querySelector('.second-input').value;
         if (typeof text == 'string') {

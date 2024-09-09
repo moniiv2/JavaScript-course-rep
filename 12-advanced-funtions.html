@@ -34,6 +34,8 @@
         console.log('good evening');
       };
 
+      this is called an anonymous function, as in it doesn't have a name
+
       console.log(function1);
       console.log(typeof function1);
       function1();
@@ -58,24 +60,37 @@
         console.log('so what else do i say now?');
       });
 
+      this is called passing a function into a function, the function passed in is called a callback.
+
+
       setTimeout(function () {
         console.log('time out');
         console.log('biatchhhh');
       }, 5000);
 
+      setTimeout() allows you to call a function in the future, the seconds are in ms
+      it takes two parameters: the callback and the time(how long to wait before calling the function)
+
+      its an asynchronous code 
       console.log('nwxet line');
 
       setInterval(function () {
         console.log('you tooootally got this course!');
       }, 3000);
 
+      setInterval() this function helps run your code  at every interval, this function returns a number wich is its Id, it takes the same parameters
       console.log('whuuuttt?');
+
+      and to stop this code from running over and over you use the function clearInterval() the parameter it takes is the Id of the setInterval
 
       ['stop drinking', 'iron clothes', 'open door for praise'].forEach(
         (value, index) => {
           if (value === 'iron clothes') {
             return;
           }
+          // forEach() doesn't ue the continue statment that's why the return statement was used
+          //using break is not easy either so if you need to use break in a loop, it's better to use a for loop method.
+
           console.log(index);
           console.log(value);
         }
@@ -105,7 +120,7 @@
 
         },
         methodias() {
-
+          cons ole.log('this is the shorthand method');
         }
       }
 

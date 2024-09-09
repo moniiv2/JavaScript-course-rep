@@ -84,16 +84,75 @@
       console.log(object5.message);
       object5.method();*/
 
-      const product = {
+      let myObject = {
+        name: 'Monisola',
+        age: 19,
+        institution: 'KWASU',
+        level: 'junior',
+      };
+
+      console.log(myObject.level);
+
+      //these are the built-in JSON objects
+
+      console.log(JSON.stringify(myObject));
+      //JSON.stringify() turns a Js object into a JSON object, it doesn't support functions, and turns the object into a string
+
+      const jsonString = JSON.stringify(myObject);
+      console.log(JSON.parse(jsonString));
+      //JSON.parse() turns a JSON string or json object back to a Js object
+
+      //another built-in object is the localStorage object which helps save data more parmanently like say, on your local disk
+      // why do we need this? because values stored in variables are temporary and if you close the tab or refresh the page all the values in variables are automatically reset to zero
+
+      localStorage.setItem('message', 'hello, there!');
+      // this is a object function in localStorage it saves values in local storage, it only works with strings and takes 2 values, the first value is the name and the second value is the data you actually want to save
+      // the name is how you access the data you save in local storage, kinda like how you label stuff and put it in your fridge.
+
+      localStorage.getItem('message');
+      //this is how you get your value out of local storage, it takes only a value which is the name of your item.
+      //you could save it in a variable and console.log it or just console.log it directly.
+
+      console.log(localStorage.getItem('message'));
+
+      localStorage.removeItem('message');
+      // this removes your previously saved item from local storage
+      // be careful though, if you remove something from local storage but you code still needs access to that item you'll need to set a default value for that item.
+
+      const product1 = {
         name: 'basketball',
         price: 2095,
         ['delivery-time']: '3 days',
       };
-      product.price += 500;
-      console.log(product.price);
+      product1.price += 500;
+      console.log(product1.price);
 
-      console.log(product);
-      function comparePrice(product1, product2) {}
+      console.log(product1);
+
+      let product2 = {
+        name: 'Air Force 1',
+        price: 40000,
+      };
+
+      function comparePrice(product1, product2) {
+        if (product1.price > product2.price) {
+          console.log('the price of the first product entered, is greater');
+        } else console.log('the price of the second product is greater');
+      }
+
+      comparePrice(product1, product2);
+
+      let product3 = product2;
+
+      function isSameProduct() {
+        if (product2 === product3) console.log('true');
+        else console.log('false');
+      }
+
+      isSameProduct();
+
+      let newString = 'MY NAME IS MONISOLA';
+      console.log(newString.toLowerCase());
     </script>
   </body>
 </html>

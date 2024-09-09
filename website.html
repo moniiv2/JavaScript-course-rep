@@ -27,11 +27,105 @@
       <button>i know</button>
     </p>
 
+    <p>Todo list</p>
+    <input type="text" placeholder="enter to-do..." class="todo-input" />
+    <input type="date" class="due-date" />
+    <button class="enter-todo" onclick="addTodo()">Enter</button>
+    <div class="todo-div"></div>
+    <style>
+      /* .hello {
+        text-decoration: line-through grey;
+        color: gray;
+      } */
+      body {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      }
+    </style>
     <script>
+      let todoList = [
+        {
+          name: 'finish js course',
+          dueDate: '2024-09-02',
+        },
+        {
+          name: 'help mide',
+          dueDate: '2024-09-02',
+        },
+      ];
+      renderTodoList();
+      function renderTodoList() {
+        let todotab = '';
+        for (let i = 0; i < todoList.length; i++) {
+          const todoObject = todoList[i];
+          let { name, dueDate } = todoObject;
+          let oneTodo = `<p>
+            <div>${name}</div>
+            <div>${dueDate}</div>
+            <button onclick = "
+            todoList.splice(${i}, 1);
+            renderTodoList();
+            ">delete</button>
+            </p>`;
+          todotab += oneTodo;
+        }
+
+        document.querySelector('.todo-div').innerHTML = todotab;
+      }
+      function addTodo() {
+        const todo = document.querySelector('.todo-input');
+
+        const dueDateInput = document.querySelector('.due-date').value;
+
+        todoList.push({
+          name: todo.value,
+          dueDate: dueDateInput,
+        });
+        todo.value = '';
+        renderTodoList();
+      }
+
+      // function done() {
+      //   document.querySelector('.this-todo').classList.add('.hello');
+      // }
       //alert("hello");
       // this is an alert message popup code.
       console.log(2 + 2);
-      console.log("some" + "text");
+      console.log('some' + 'text');
+
+      let myObject = {
+        name: 'Monisola',
+        age: 19,
+        institution: 'KWASU',
+        level: 'junior',
+      };
+
+      console.log(myObject.level);
+
+      //these are the built-in JSON objects
+
+      console.log(JSON.stringify(myObject));
+      //JSON.stringify() turns a Js object into a JSON object, it doesn't support functions, and turns the object into a string
+
+      const jsonString = JSON.stringify(myObject);
+      console.log(JSON.parse(jsonString));
+      //JSON.parse() turns a JSON string or json object back to a Js object
+
+      //another built-in object is the localStorage object which helps save data more parmanently like say, on your local disk
+      // why do we need this? because values stored in variables are temporary and if you close the tab or refresh the page all the values in variables are automatically reset to zero
+
+      localStorage.setItem('message', 'hello, there!');
+      // this is a object function in localStorage it saves values in local storage, it only works with strings and takes 2 values, the first value is the name and the second value is the data you actually want to save
+      // the name is how you access the data you save in local storage, kinda like how you label stuff and put it in your fridge.
+
+      localStorage.getItem('message');
+      //this is how you get your value out of local storage, it takes only a value which is the name of your item.
+      //you could save it in a variable and console.log it or just console.log it directly.
+
+      console.log(localStorage.getItem('message'));
+
+      localStorage.removeItem('message');
+      // this removes your previously saved item from local storage
+      // be careful though, if you remove something from local storage but you code still needs access to that item you'll need to set a default value for that item.
     </script>
   </body>
 </html>
