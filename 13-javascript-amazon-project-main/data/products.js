@@ -1,4 +1,24 @@
-const products = [
+const products = [ 
+  {
+    id: "id2",
+    name: "Green Umbrella",
+    image: "images/products/umbrella.jpg",
+    rating: {
+      stars: 4.5,
+      count: 731
+    },
+    priceCents: 260
+  },
+  {
+    id: "id1",
+    name: "Black backpack",
+    image: "images/products/backpack.jpg",
+    rating: {
+      stars: 3,
+      count: 93
+    },
+    priceCents: 625
+  },
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
     image: "images/products/athletic-cotton-socks-6-pairs.jpg",
