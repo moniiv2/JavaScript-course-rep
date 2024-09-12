@@ -1,4 +1,4 @@
-import { cart, removeFromCart } from "../data/cart.js";
+import { calculateCartQuantity, cart, removeFromCart } from "../data/cart.js";
 import { products } from "../data/products.js";
 import { formatCurrrency } from "./utils/money.js";
 
@@ -98,5 +98,20 @@ document.querySelectorAll('.js-delete-link').forEach((link) => {
     //console.log(container);
 
     container.remove();
+    updateCheckoutDisplay()
   });
 });
+
+function updateCheckoutDisplay () {
+  document.querySelector('.js-checkout-display').innerHTML = `${calculateCartQuantity()} items` 
+}
+
+updateCheckoutDisplay();
+
+// document.querySelectorAll('.js-update-quantity-link').forEach((link) => {
+//   link.addEventListener('click', () => {
+//     const productId = link.dataset.productId;
+//     document.querySelector('.js-quantity-input').classList.add('is-editing-quantity')
+//     document.querySelector('.js-save').classList.add('is-editing-quantity')
+//   })
+// })

@@ -1,5 +1,5 @@
 // console.log('hello');
-import {cart, addToCart} from '../data/cart.js';
+import {cart, addToCart, calculateCartQuantity} from '../data/cart.js';
 import { products } from '../data/products.js';
 import { formatCurrrency } from './utils/money.js';
 
@@ -59,14 +59,11 @@ products.forEach((product) => {
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
-function updateCartQunatity() {
-  let cartQuantity = 0;
-    cart.forEach((cartItem) => {
-      cartQuantity += cartItem.quantity
-    });
-
-    document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+function updateCartQuantity() {
+  document.querySelector('.js-cart-quantity').innerHTML = calculateCartQuantity();
 }
+
+updateCartQuantity();
 
 document.querySelectorAll('.js-add-to-cart').forEach((button) => {
   button.addEventListener('click', () => {
@@ -74,6 +71,6 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
 
     addToCart(productId);
 
-    updateCartQunatity();
+    updateCartQuantity();
   });
 });
