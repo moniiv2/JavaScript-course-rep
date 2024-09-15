@@ -1,4 +1,5 @@
 // console.log('hello');
+import  dayjs  from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 
 let productsHTML = '';
 
@@ -98,3 +99,23 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
 
   });
 });
+
+const today = dayjs()
+const in5days = today.add(5, 'days').format('MMMM dddd')
+console.log(in5days)
+const inamonth = today.add(1, 'months').format('MMMM')
+console.log(inamonth)
+const beforethismonth = today.subtract(1, 'months').format('MMMM')
+console.log(beforethismonth)
+
+const day = today.format('dddd')
+const date2 = today.subtract()
+function isWeekend(date) {
+  if (date === day) {
+    console.log(`today, ${date}, is a part of the weekend`)
+  } else {
+    console.log('not weekend yet')
+  }
+}
+isWeekend('Tuesday')
+isWeekend('Saturday')
