@@ -29,7 +29,8 @@ import { renderPaymentSummary } from "./paymentSummary.js";
       );
 
     cartSummaryHTML += `
-        <div class="js-cart-item-container-${matchingProduct.id} cart-item-container">
+        <div class="js-cart-item-container-${matchingProduct.id} cart-item-container
+        js-cart-item-container">
           <div class="delivery-date">Delivery date: ${dateString} </div>
 
           <div class="cart-item-details-grid">
@@ -43,12 +44,12 @@ import { renderPaymentSummary } from "./paymentSummary.js";
                 ${matchingProduct.name}
               </div>
               <div class="product-price">$${formatCurrrency(matchingProduct.priceCents)}</div>
-              <div class="product-quantity">
+              <div class= "js-product-quantity-${matchingProduct.id} product-quantity">
                 <span> Quantity: <span class="quantity-label">${cartItem.quantity}</span> </span>
                 <span class="update-quantity-link link-primary">
                   Update
                 </span>
-                <span class="js-delete-link delete-quantity-link link-primary" data-product-id = "${matchingProduct.id}">
+                <span class="js-delete-link js-delete-link-${matchingProduct.id} delete-quantity-link link-primary" data-product-id = "${matchingProduct.id}">
                   Delete
                 </span>
               </div>
@@ -122,9 +123,6 @@ import { renderPaymentSummary } from "./paymentSummary.js";
       });
     });
 
-    function updateCheckoutDisplay () {
-      document.querySelector('.js-checkout-display').innerHTML = `${calculateCartQuantity()} items` 
-    }
 
     updateCheckoutDisplay();
 
@@ -136,8 +134,11 @@ import { renderPaymentSummary } from "./paymentSummary.js";
         renderPaymentSummary()
       })
     })
-    }
+}
 
+export function updateCheckoutDisplay () {
+  document.querySelector('.js-checkout-display').innerHTML = `${calculateCartQuantity()} items` 
+}
 
 
 // document.querySelectorAll('.js-update-quantity-link').forEach((link) => {
