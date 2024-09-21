@@ -1,5 +1,7 @@
 import { renderOrderSummary, updateCheckoutDisplay } from "../../scripts/checkout/orderSummary.js";
 import { cart, loadFromStorage } from "../../data/cart.js";
+import { products } from "../../data/products.js";
+import { formatCurrrency } from "../../scripts/utils/money.js";
 
 describe('test suite: renderOrderSummary', () => {
 
@@ -70,7 +72,19 @@ describe('test suite: renderOrderSummary', () => {
 
   })
 
+  it ('displays the product name correctly on the page', () => {
+
+    expect (document.querySelector('.js-product-name').innerText).toBe(products[0].name)
+  })
+
+  it ('displays product price correctly on the page', () => {
+    expect (document.querySelector('.js-product-price').innerText).toBe(`$${formatCurrrency(products[0].priceCents)}`)
+
+    expect (document.querySelector(`.js-item-details-${productId1}`).innerText).toContain(`$${formatCurrrency(products[0].priceCents)}`)
+  })
+
   afterEach(() => {
     document.querySelector('.js-test-container').innerHTML = ``
   })
+
 })

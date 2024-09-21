@@ -39,11 +39,11 @@ import { renderPaymentSummary } from "./paymentSummary.js";
               src="${matchingProduct.image}"
             />
 
-            <div class="cart-item-details">
-              <div class="product-name">
+            <div class="cart-item-details js-item-details-${matchingProduct.id}">
+              <div class="product-name js-product-name">
                 ${matchingProduct.name}
               </div>
-              <div class="product-price">$${formatCurrrency(matchingProduct.priceCents)}</div>
+              <div class="product-price js-product-price">$${formatCurrrency(matchingProduct.priceCents)}</div>
               <div class= "js-product-quantity-${matchingProduct.id} product-quantity">
                 <span> Quantity: <span class="quantity-label">${cartItem.quantity}</span> </span>
                 <span class="update-quantity-link link-primary">
@@ -67,42 +67,42 @@ import { renderPaymentSummary } from "./paymentSummary.js";
     });
 
     function deliveryOptionsHTML (matchingProduct, cartItem) {
-    let html = ''
-
-      deliveryOptions.forEach((deliveryOption) => {
-        const today = dayjs();
-        const deliveryDate = today.add(deliveryOption.deliveryDays, 'days')
-        const dateString = deliveryDate.format(
-          'dddd, MMMM D'
-        );
-
-        const priceString = deliveryOption.priceCents === 0
-        ? 'FREE'
-        : `$${formatCurrrency(deliveryOption.priceCents)} -`
-
-        const isChecked = deliveryOption.id === cartItem.deliveryOptionId
-
-        html += `
-        <div class="delivery-option js-delivery-option"
-        data-product-id = "${matchingProduct.id}"
-        data-delivery-option-id = "${deliveryOption.id}">
-          <input
-            type="radio"
-            ${isChecked ? 'checked' : '' }
-            class="delivery-option-input"
-            name="delivery-option-${matchingProduct.id}"
-          />
-          <div>
-            <div class="delivery-option-date">
-              ${dateString}
+      let html = ''
+    
+        deliveryOptions.forEach((deliveryOption) => {
+          const today = dayjs();
+          const deliveryDate = today.add(deliveryOption.deliveryDays, 'days')
+          const dateString = deliveryDate.format(
+            'dddd, MMMM D'
+          );
+    
+          const priceString = deliveryOption.priceCents === 0
+          ? 'FREE'
+          : `$${formatCurrrency(deliveryOption.priceCents)} -`
+    
+          const isChecked = deliveryOption.id === cartItem.deliveryOptionId
+    
+          html += `
+          <div class="delivery-option js-delivery-option"
+          data-product-id = "${matchingProduct.id}"
+          data-delivery-option-id = "${deliveryOption.id}">
+            <input
+              type="radio"
+              ${isChecked ? 'checked' : '' }
+              class="delivery-option-input"
+              name="delivery-option-${matchingProduct.id}"
+            />
+            <div>
+              <div class="delivery-option-date">
+                ${dateString}
+              </div>
+              <div class="delivery-option-price">${priceString} Shipping</div>
             </div>
-            <div class="delivery-option-price">${priceString} Shipping</div>
           </div>
-        </div>
-        `
-      })
-      return html
-    }
+          `
+        })
+        return html
+      }
 
     document.querySelector('.js-order-summary').innerHTML = cartSummaryHTML;
     //console.log(cartSummaryHTML);
@@ -139,6 +139,8 @@ import { renderPaymentSummary } from "./paymentSummary.js";
 export function updateCheckoutDisplay () {
   document.querySelector('.js-checkout-display').innerHTML = `${calculateCartQuantity()} items` 
 }
+
+ 
 
 
 // document.querySelectorAll('.js-update-quantity-link').forEach((link) => {

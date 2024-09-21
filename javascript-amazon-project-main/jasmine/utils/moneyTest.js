@@ -14,4 +14,10 @@ describe('test suite: formatCurrency', () => {
 
     expect(formatCurrrency(2000.4)).toEqual('20.00')
   })
+
+  it('shows debt', () => {
+    expect(formatCurrrency(-1345)).toEqual('-13.45')
+
+    expect(formatCurrrency(-10000.8)).toEqual('-100.01')
+  })
 })
