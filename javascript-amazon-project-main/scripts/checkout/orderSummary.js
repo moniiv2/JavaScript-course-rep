@@ -43,7 +43,9 @@ import { renderPaymentSummary } from "./paymentSummary.js";
               <div class="product-name js-product-name">
                 ${matchingProduct.name}
               </div>
-              <div class="product-price js-product-price">$${formatCurrrency(matchingProduct.priceCents)}</div>
+              <div class="product-price js-product-price">
+              ${matchingProduct.getPrice()}
+              </div>
               <div class= "js-product-quantity-${matchingProduct.id} product-quantity">
                 <span> Quantity: <span class="quantity-label">${cartItem.quantity}</span> </span>
                 <span class="update-quantity-link link-primary">
