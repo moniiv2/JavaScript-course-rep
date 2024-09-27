@@ -53,6 +53,22 @@ class Clothing extends Product {
   }
 }
 
+/*
+const date = new Date()
+console.log(date)
+
+console.log(date.toLocaleTimeString())
+
+console.log(this)
+
+function logThis( ){
+  console.log(this)
+}
+logThis()
+logThis.call('hello, but in spanish')
+
+console.log("I'M A SURVIVOR")
+*/
 
 export const products = [
   {
