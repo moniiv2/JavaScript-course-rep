@@ -764,7 +764,7 @@ export const products = [
   if (productDetails.type === 'clothing') {
     return new Clothing(productDetails)
   } else if (productDetails.type === 'appliance') {
-    console.log(new Appliances(productDetails))
+    // console.log(new Appliances(productDetails))
     return new Appliances(productDetails)
   }
   return new Product(productDetails)
