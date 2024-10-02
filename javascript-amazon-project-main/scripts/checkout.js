@@ -1,5 +1,5 @@
 import { loadCart } from "../data/cart.js";
-import { loadProducts } from "../data/products.js";
+import { loadProductsFetch } from "../data/products.js";
 import { renderOrderSummary } from "./checkout/orderSummary.js";
 import { renderPaymentSummary } from "./checkout/paymentSummary.js";
 
@@ -8,23 +8,16 @@ import { renderPaymentSummary } from "./checkout/paymentSummary.js";
 // import '../data/backend-practice.js'
 
 Promise.all([
-  new Promise((resolve) => {
-    loadProducts(() => {
-      resolve('value 1')
-    })
-  }),
+  loadProductsFetch(),
   new Promise((resolve) => {
     loadCart(() => {
-      resolve('hijo reputa!')
+      resolve()
     })
   })
 
-]).then((values) => {
+]).then(() => {
   renderOrderSummary();
   renderPaymentSummary();
-  values.forEach((say) => {
-    console.log(say)
-  })
 })
 
 
