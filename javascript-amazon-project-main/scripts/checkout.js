@@ -8,14 +8,22 @@ import { renderPaymentSummary } from "./checkout/paymentSummary.js";
 // import '../data/backend-practice.js'
 
 async function loadPage () {
+  try{
+  // throw 'error 1'
 
   await loadProductsFetch()
 
-  await new Promise((resolve) => {
+  await new Promise((resolve, reject) => {
+    // throw "eerror 2"
     loadCart(() => {
+      // reject('error 3')
       resolve()
     })
   })
+  } catch (error) {
+    console.log('unexpected error. please try again')
+  }
+  
 
   renderOrderSummary();
   renderPaymentSummary();
