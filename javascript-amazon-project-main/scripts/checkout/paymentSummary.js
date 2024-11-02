@@ -81,7 +81,6 @@ export function renderPaymentSummary () {
    } catch (error) {
     console.log('unexpected error. try again later.')
    }
-
    window.location.href = 'orders.html'
   })
 }
